@@ -34,17 +34,19 @@ export default {
         axios.get(this.url).then(res => {
             
             this.pokemon.types = res.data.types[0].type.name;
-            
+            if(res.data.types.length > 1) {
+                 this.pokemon.secType = res.data.types[1].type.name;
+            }
             this.pokemon.front = res.data.sprites.front_default;
             this.pokemon.back = res.data.sprites.back_default;
             this.currentSprite =  this.pokemon.front;
             
-         }) ,
-            axios.get(this.url).then(res => {
-            this.pokemon.secType = res.data.types[1].type.name;
-         }).catch(function() {
-            this.pokemon.secType = false; 
-         })
+        //  }) ,
+        //     axios.get(this.url).then(res => {
+        //     this.pokemon.secType = res.data.types[1].type.name;
+        //  }).catch(function() {
+        //     this.pokemon.secType = false; 
+          })
     },
     data(){
       return {
