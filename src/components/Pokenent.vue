@@ -32,9 +32,9 @@ import axios from "axios";
 export default {
     created: function(){
         axios.get(this.url).then(res => {
-            if(res.data.types.length > 1){
-                this.pokemon.types = res.data.types;
-            }
+            
+            this.pokemon.types = res.data.types[0].type.name;
+            
             this.pokemon.front = res.data.sprites.front_default;
             this.pokemon.back = res.data.sprites.back_default;
             this.currentSprite =  this.pokemon.front;
