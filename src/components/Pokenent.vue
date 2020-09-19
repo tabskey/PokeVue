@@ -66,9 +66,11 @@ export default {
         url : String
     },
     filters:{
-        upperCase: function(value) {
+        upperCase: function(value) { 
+            if(value){ 
             var nameUpper = value[0].toUpperCase() + value.slice(1); 
             return nameUpper;
+             }
         }
     },
     methods: {
